@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Istoria Economică</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Economie & Societate</a>
+  
+      <!-- Buton hamburger -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Meniu">
+        ☰
+      </button>
+  
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Acasă</a>
+        <a href="importance.html">Importanța</a>
+        <a href="concepts.html">Concepte</a>
+        <a href="branches.html">Ramuri</a>
+        <a href="history.html" class="active">Istorie</a>
+        <a href="budget.html">Simulare Buget</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="resources.html">Resurse</a>
+      </div>
+    </div>
+  </nav>
+  
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="animate-slide">Evoluția Economică</h1>
+      <p class="animate-fade">De la antichitate la economia digitală - o călătorie istorică</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="timeline-section">
+      <h2 class="section-title">Evoluția Economică în Timp</h2>
+      <div class="timeline-line">
+    
+        <!-- 1 -->
+        <div class="timeline-item left">
+          <div class="content">
+            <i class="fa-solid fa-scale-balanced icon"></i>
+            <h3>Antichitate – Barter</h3>
+            <p>Schimb direct de bunuri. Fără monedă, fără prețuri clare – doar nevoi și reciprocitate.</p>
+          </div>
+        </div>
+    
+        <!-- 2 -->
+        <div class="timeline-item right">
+          <div class="content">
+            <i class="fa-solid fa-coins icon"></i>
+            <h3>Secolul VI î.Hr. – Primele Monede</h3>
+            <p>Aur și argint în Lidia. Primele forme de valoare standardizată și comerț internațional.</p>
+          </div>
+        </div>
+    
+        <!-- 3 -->
+        <div class="timeline-item left">
+          <div class="content">
+            <i class="fa-solid fa-book icon"></i>
+            <h3>1776 – Adam Smith</h3>
+            <p>„Avuția Națiunilor” pune bazele economiei liberale și ideii de piață autoreglată.</p>
+          </div>
+        </div>
+    
+        <!-- 4 -->
+        <div class="timeline-item right">
+          <div class="content">
+            <i class="fa-solid fa-people-group icon"></i>
+
+            <h3>1867 – Karl Marx</h3>
+            <p>Critică inegalitățile capitalismului și propune o economie colectivă – bazată pe justiție socială.</p>
+          </div>
+        </div>
+    
+        <!-- 5 -->
+        <div class="timeline-item left">
+          <div class="content">
+            <i class="fa-solid fa-arrow-trend-down icon"></i>
+            <h3>1929 – Marea Criză</h3>
+            <p>Prăbușirea bursei duce la regândirea rolului statului. Apare ideea de intervenție economică.</p>
+          </div>
+        </div>
+    
+        <!-- 6 -->
+        <div class="timeline-item right">
+          <div class="content">
+            <i class="fa-solid fa-hand-holding-dollar icon"></i>
+            <h3>1944 – Bretton Woods</h3>
+            <p>Nașterea sistemului financiar global modern, cu FMI și dolarul ca referință.</p>
+          </div>
+        </div>
+    
+        <!-- 7 -->
+        <div class="timeline-item left">
+          <div class="content">
+            <i class="fa-solid fa-money-bill-wave icon"></i>
+            <h3>1971 – Sfârșitul Etalonului Aur</h3>
+            <p>Monedele devin „fiat”, inflația devine un instrument. Începe epoca flexibilității valutare.</p>
+          </div>
+        </div>
+    
+        <!-- 8 -->
+        <div class="timeline-item right">
+          <div class="content">
+            <i class="fa-solid fa-building-columns icon"></i>
+            <h3>2008 – Criza Financiară</h3>
+            <p>Prăbușire bancară globală. Statul intervine pentru a salva piețele.</p>
+          </div>
+        </div>
+    
+        <!-- 9 -->
+        <div class="timeline-item left">
+          <div class="content">
+            <i class="fa-solid fa-virus icon"></i>
+            <h3>2020 – Pandemia</h3>
+            <p>Accelerarea digitalizării, intervenții masive ale statelor și schimbarea modului de lucru.</p>
+          </div>
+        </div>
+    
+      </div>
+    </section>
+    
+  
+    <!-- Personalități -->
+    <section class="key-figures">
+      <h2>Figuri Cheie în Gândirea Economică</h2>
+      <div class="figure-grid">
+        <div class="figure-card" onclick="openModal('smith')">
+          <h3>Adam Smith</h3>
+          <p>Fondator al economiei moderne și al ideii de piață autoreglată.</p>
+          <small class="hint-text">Apasă pentru detalii</small>
+        </div>
+        <div class="figure-card" onclick="openModal('marx')">
+          <h3>Karl Marx</h3>
+          <p>Critic al capitalismului, promotor al colectivismului economic.</p>
+          <small class="hint-text">Apasă pentru detalii</small>
+        </div>
+        <div class="figure-card" onclick="openModal('keynes')">
+          <h3>John M. Keynes</h3>
+          <p>A susținut intervenția statului în economie pentru stabilitate.</p>
+          <small class="hint-text">Apasă pentru detalii</small>
+        </div>
+        <div class="figure-card" onclick="openModal('friedman')">
+          <h3>Milton Friedman</h3>
+          <p>Avocat al monetarismului și al pieței libere nereglementate.</p>
+          <small class="hint-text">Apasă pentru detalii</small>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Modaluri -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content" id="modalContent">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div id="modalText"></div>
+      </div>
+    </div>
+  
+    <!-- Concluzie -->
+    <section class="comparison-summary">
+      <h2>Concluzie Comparativă</h2>
+      <p>
+        De la Adam Smith la Karl Marx, vedem două paradigme: una care favorizează libertatea individuală și piața liberă, și alta care critică inegalitățile generate de aceasta.
+        Keynes a propus o cale de mijloc - intervenția statului pentru a corecta dezechilibrele. Friedman a dus liberalismul la extrem, respingând intervenția.
+        <strong>Diferențele</strong> constau în rolul statului, iar <strong>asemănările</strong> în recunoașterea nevoii de echilibru economic pentru progres.
+      </p>
+    </section>
+  </main>
+  
+  
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-wrapper">
+      <div class="footer-column">
+        <h4>Autor proiect</h4>
+        <p>Docea Alexandru</p>
+        <p>Liceul Teoretic "Nikolaus Lenau"</p>
+        <p>Timișoara</p>
+      </div>
+  
+      <div class="footer-column">
+        <h4>Coordonator</h4>
+        <p>prof. Angela Avrămuț</p>
+        <p>prof. Ovidiu Rușeț</p>
+      </div>
+  
+      <div class="footer-column">
+        <h4>Concurs</h4>
+        <p>Istorie și Societate</p>
+        <p>în Dimensiune Virtuală</p>
+      </div>
+    </div>
+  
+    <div class="footer-credit">
+      © 2025 - Proiect realizat de Docea Alexandru
+    </div>
+  </footer>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

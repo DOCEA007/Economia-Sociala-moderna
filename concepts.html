@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concepte Economice</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Economie & Societate</a>
+  
+      <!-- Buton hamburger -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Meniu">
+        ☰
+      </button>
+  
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Acasă</a>
+        <a href="importance.html">Importanța</a>
+        <a href="concepts.html" class="active">Concepte</a>
+        <a href="branches.html">Ramuri</a>
+        <a href="history.html">Istorie</a>
+        <a href="budget.html">Simulare Buget</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="resources.html">Resurse</a>
+      </div>
+    </div>
+  </nav>
+  
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="animate-slide">Concepte Economice de Bază</h1>
+      <p class="animate-fade">Fundamentele economiei moderne și importanța lor</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="concept-grid">
+      <!-- Cerere și Ofertă -->
+      <div class="concept-card">
+        <h3>📈 Cerere și Ofertă</h3>
+        <div class="chart-container">
+          <canvas id="supplyDemandChart"></canvas>
+        </div>
+        <p>
+          Legea cererii și ofertei explică modul în care, atunci când cererea pentru un produs crește iar oferta rămâne constantă, prețurile tind să urce - iar invers. Aceasta este baza pentru înțelegerea modului de funcționare a piețelor.
+        </p>
+        <div class="example">
+          <h4>Exemplu practic:</h4>
+          <p>
+            În timpul pandemiei, cererea pentru măști a crescut dramatic, iar oferta nu a reușit să țină pasul, determinând o creștere a prețurilor.
+          </p>
+        </div>
+      </div>
+
+      <!-- PIB -->
+      <div class="concept-card">
+        <h3>💰 Produs Intern Brut (PIB)</h3>
+        <div class="chart-container">
+          <canvas id="gdpChart"></canvas>
+        </div>
+        <p>
+          PIB-ul reprezintă valoarea totală a bunurilor și serviciilor finale produse într-o țară într-o anumită perioadă. Acest indicator reflectă dimensiunea și performanța economică a unei țări.
+        </p>
+        <ul class="gdp-list">
+          <li>🇷🇴 România: 250 miliarde € (2022)</li>
+          <li>🇩🇪 Germania: 3.800 miliarde €</li>
+        </ul>
+      </div>
+
+      <!-- Inflație -->
+      <div class="concept-card">
+        <h3>📉 Inflația</h3>
+        <div class="chart-container">
+          <canvas id="inflationChart"></canvas>
+        </div>
+        <p>
+          Inflația reprezintă creșterea generalizată a prețurilor, ceea ce reduce puterea de cumpărare a banilor. Un nivel moderat poate fi benefic, însă o inflație excesivă poate afecta negativ economia.
+        </p>
+        <div class="inflation-example">
+          <div class="money-shrink">
+            <img src="images/money.png" alt="Bani">
+            <div class="shrink-effect"></div>
+          </div>
+          <p>
+            De exemplu, 100 lei în 2010 ar avea valoarea echivalentă a aproximativ 55 lei în 2023.
+          </p>
+        </div>
+      </div>
+
+      <!-- Resurse Limităte -->
+      <div class="concept-card">
+        <h3>⚖️ Resurse Limitate</h3>
+        <div class="chart-container">
+          <canvas id="resourcesChart"></canvas>
+        </div>
+        
+        <p>
+          Economia se bazează pe alocarea optimă a resurselor limitate - naturale, umane și de capital - pentru a satisface nevoile nelimitate ale societății.
+        </p>
+      </div>
+      <!-- Cost de oportunitate -->
+      <div class="concept-card">
+        <h3>💡 Costul de Oportunitate</h3>
+        <p>
+          Este valoarea celei mai bune alternative la care renunți atunci când faci o alegere. Economiștii folosesc acest concept pentru a înțelege eficiența deciziilor.
+        </p>
+        <div class="example">
+          <h4>Exemplu:</h4>
+          <p>
+            Dacă alegi să mergi la facultate în loc să lucrezi, costul de oportunitate este salariul la care ai renunțat.
+          </p>
+        </div>
+      </div>
+
+      <!-- Șomaj -->
+      <div class="concept-card">
+        <h3>👥 Șomajul</h3>
+        <p>
+          Reprezintă proporția persoanelor apte de muncă care nu au un loc de muncă. Poate fi structural (schimbări în economie), ciclic (crize) sau sezonier.
+        </p>
+        <ul>
+          <li>România (2023): 5.6%</li>
+          <li>UE medie: 6.0%</li>
+        </ul>
+      </div>
+
+      <!-- Politică monetară -->
+      <div class="concept-card">
+        <h3>🏦 Politica Monetară</h3>
+        <p>
+          Setul de măsuri adoptate de banca centrală pentru a controla oferta de bani și dobânzile. Afectează inflația, creșterea economică și cursul valutar.
+        </p>
+        <div class="example">
+          <h4>Instrumente:</h4>
+          <p>
+            ➤ Stabilirea dobânzii de politică monetară<br>
+            ➤ Operațiuni de piață deschisă (vânzare/cumpărare titluri de stat)
+          </p>
+        </div>
+      </div>
+
+      <!-- Productivitate -->
+      <div class="concept-card">
+        <h3>⚙️ Productivitate</h3>
+        <p>
+          Măsoară eficiența producției: cât de mult output se generează pentru un anumit input (muncă, capital, resurse).
+        </p>
+        <div class="example">
+          <h4>De ce contează?</h4>
+          <p>
+            Țările cu productivitate mai mare tind să aibă un PIB/capita mai ridicat, salarii mai bune și inovație mai rapidă.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-wrapper">
+      <div class="footer-column">
+        <h4>Autor proiect</h4>
+        <p>Docea Alexandru</p>
+        <p>Liceul Teoretic "Nikolaus Lenau"</p>
+        <p>Timișoara</p>
+      </div>
+  
+      <div class="footer-column">
+        <h4>Coordonator</h4>
+        <p>prof. Angela Avrămuț</p>
+        <p>prof. Ovidiu Rușeț</p>
+      </div>
+  
+      <div class="footer-column">
+        <h4>Concurs</h4>
+        <p>Istorie și Societate</p>
+        <p>în Dimensiune Virtuală</p>
+      </div>
+    </div>
+  
+    <div class="footer-credit">
+      © 2025 - Proiect realizat de Docea Alexandru
+    </div>
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

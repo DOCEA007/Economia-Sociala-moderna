@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculator Buget Personal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <!-- Navigation -->
+   <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Economie & Societate</a>
+  
+      <!-- Buton hamburger -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Meniu">
+        ☰
+      </button>
+  
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Acasă</a>
+        <a href="importance.html">Importanța</a>
+        <a href="concepts.html">Concepte</a>
+        <a href="branches.html">Ramuri</a>
+        <a href="history.html">Istorie</a>
+        <a href="budget.html" class="active">Simulare Buget</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="resources.html">Resurse</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="animate-slide">Calculator Buget</h1>
+      <p class="animate-fade">Află cum îți distribui veniturile și economiile</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="card">
+      <h2 class="budget-heading">Introdu datele tale:</h2>
+      <form id="budgetForm">
+        <label for="income">Venit lunar (€):</label>
+        <input type="number" id="income" required>
+
+        <label for="food">Cheltuieli pe alimente (€):</label>
+        <input type="number" id="food" required>
+
+        <label for="transport">Transport (€):</label>
+        <input type="number" id="transport" required>
+
+        <label for="education">Educație (€):</label>
+        <input type="number" id="education" required>
+
+        <label for="fun">Divertisment (€):</label>
+        <input type="number" id="fun" required>
+
+        <button type="button" id="calculateBtn" class="btn">Calculează Bugetul</button>
+      </form>
+
+      <p id="feedbackMsg" style="margin-top: 1rem;"></p>
+    </div>
+
+    <div class="card">
+      <canvas id="budgetChart"></canvas>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-wrapper">
+      <div class="footer-column">
+        <h4>Autor proiect</h4>
+        <p>Docea Alexandru</p>
+        <p>Liceul Teoretic "Nikolaus Lenau"</p>
+        <p>Timișoara</p>
+      </div>
+      <div class="footer-column">
+        <h4>Coordonator</h4>
+        <p>prof. Angela Avrămuț</p>
+        <p>prof. Ovidiu Rușeț</p>
+      </div>
+      <div class="footer-column">
+        <h4>Concurs</h4>
+        <p>Istorie și Societate</p>
+        <p>în Dimensiune Virtuală</p>
+      </div>
+    </div>
+    <div class="footer-credit">
+      © 2025 – Proiect realizat de Docea Alexandru
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

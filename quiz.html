@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz – Economie & Societate</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Economie & Societate</a>
+  
+      <!-- Buton hamburger -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Meniu">
+        ☰
+      </button>
+  
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Acasă</a>
+        <a href="importance.html">Importanța</a>
+        <a href="concepts.html">Concepte</a>
+        <a href="branches.html">Ramuri</a>
+        <a href="history.html">Istorie</a>
+        <a href="budget.html">Simulare Buget</a>
+        <a href="quiz.html" class="active">Quiz</a>
+        <a href="resources.html">Resurse</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="animate-slide">Testează-ți Cunoștințele Economice</h1>
+      <p class="animate-fade">Alege un quiz și obține un badge pentru performanța ta!</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="quiz-buttons">
+      <button onclick="showQuiz('quiz1')">🧠 Noțiuni de Bază</button>
+      <button onclick="showQuiz('quiz2')">🌍 Sisteme Economice</button>
+      <button onclick="showQuiz('quiz3')">📜 Istorie Economică</button>
+    </div>
+
+    <!-- Quiz 1 -->
+    <section id="quiz1" class="quiz-section card animate-pop">
+      <h2>Noțiuni de Bază</h2>
+      <form id="quiz1Form">
+        <p><strong>1. Ce indică PIB-ul unei țări?</strong></p>
+        <label><input type="radio" name="q1" value="a"> Numărul angajaților</label><br>
+        <label><input type="radio" name="q1" value="b"> Totalul bunurilor și serviciilor produse</label><br>
+        <label><input type="radio" name="q1" value="c"> Nivelul prețurilor</label><br>
+
+        <p><strong>2. Ce efect are inflația?</strong></p>
+        <label><input type="radio" name="q2" value="c"> Reduce taxele</label><br>
+        <label><input type="radio" name="q2" value="a"> Scade valoarea banilor</label><br>
+        <label><input type="radio" name="q2" value="b"> Crește salariile automat</label><br>
+
+        <p><strong>3. Cum funcționează cererea și oferta?</strong></p>
+        <label><input type="radio" name="q3" value="b"> Nevoi sociale</label><br>
+        <label><input type="radio" name="q3" value="a"> Statul stabilește prețul</label><br>
+        <label><input type="radio" name="q3" value="c"> Prin interacțiunea cererii și ofertei</label><br>
+
+        <p><strong>4. Ce înseamnă costul de oportunitate?</strong></p>
+        <label><input type="radio" name="q4" value="c"> Valoarea celei mai bune alternative la care renunți</label><br>
+        <label><input type="radio" name="q4" value="a"> Costul total al unui produs</label><br>
+        <label><input type="radio" name="q4" value="b"> Prețul pieței negre</label><br>
+
+        <p><strong>5. Ce sunt resursele limitate?</strong></p>
+        <label><input type="radio" name="q5" value="a"> Resurse naturale, umane și de capital finite</label><br>
+        <label><input type="radio" name="q5" value="b"> Orice produs importat</label><br>
+        <label><input type="radio" name="q5" value="c"> Banii de la bancă</label><br>
+
+        <p><strong>6. Ce indică inflația ridicată?</strong></p>
+        <label><input type="radio" name="q6" value="b"> Scăderea valorii banilor în timp</label><br>
+        <label><input type="radio" name="q6" value="c"> Creșterea rezervelor valutare</label><br>
+        <label><input type="radio" name="q6" value="a"> Reducerea prețurilor</label><br>
+
+        <button type="button" class="btn" onclick="checkQuiz('quiz1', {
+            q1:'b', q2:'a', q3:'c', q4:'c', q5:'a', q6:'b'
+          })">Trimite</button>
+          
+      </form>
+      <p id="quiz1Result"></p>
+    </section>
+
+    <!-- Quiz 2 -->
+    <section id="quiz2" class="quiz-section card animate-pop">
+      <h2>Sisteme Economice</h2>
+      <form id="quiz2Form">
+        <p><strong>1. Într-o economie planificată, cine stabilește prețurile?</strong></p>
+        <label><input type="radio" name="q1" value="c"> Companiile</label><br>
+        <label><input type="radio" name="q1" value="a"> Piața</label><br>
+        <label><input type="radio" name="q1" value="b"> Statul</label><br>
+
+        <p><strong>2. Ce caracterizează economia mixtă?</strong></p>
+        <label><input type="radio" name="q2" value="b"> Doar stat</label><br>
+        <label><input type="radio" name="q2" value="a"> Doar privat</label><br>
+        <label><input type="radio" name="q2" value="c"> Sector public + privat</label><br>
+
+        <p><strong>3. Ce rol are statul într-o piață liberă?</strong></p>
+        <label><input type="radio" name="q3" value="a"> Control total</label><br>
+        <label><input type="radio" name="q3" value="c"> Planificare completă</label><br>
+        <label><input type="radio" name="q3" value="b"> Intervenție minimă</label><br>
+        
+        <p><strong>4. Care dintre următoarele este o economie mixtă?</strong></p>
+        <label><input type="radio" name="q4" value="a"> România</label><br>
+        <label><input type="radio" name="q4" value="b"> Coreea de Nord</label><br>
+        <label><input type="radio" name="q4" value="c"> Cuba</label><br>
+
+        <p><strong>5. Într-o economie de piață, ce determină inovația?</strong></p>
+        <label><input type="radio" name="q5" value="b"> Concurența între companii</label><br>
+        <label><input type="radio" name="q5" value="c"> Subvențiile de stat</label><br>
+        <label><input type="radio" name="q5" value="a"> Lipsa cererii</label><br>
+
+        <p><strong>6. Ce definește o economie planificată?</strong></p>
+        <label><input type="radio" name="q6" value="c"> Statul controlează total producția și distribuția</label><br>
+        <label><input type="radio" name="q6" value="a"> Doar firmele private decid</label><br>
+        <label><input type="radio" name="q6" value="b"> Decizii bazate pe sondaje sociale</label><br>
+
+        <button type="button" class="btn" onclick="checkQuiz('quiz2', {
+            q1:'b', q2:'c', q3:'b', q4:'a', q5:'b', q6:'c'
+          })">Trimite</button>
+      </form>
+      <p id="quiz2Result"></p>
+    </section>
+
+    <!-- Quiz 3 -->
+    <section id="quiz3" class="quiz-section card animate-pop">
+      <h2>Istorie Economică</h2>
+      <form id="quiz3Form">
+        <p><strong>1. Cine a scris „Avuția Națiunilor”?</strong></p>
+        <label><input type="radio" name="q1" value="c"> Keynes</label><br>
+        <label><input type="radio" name="q1" value="a"> Karl Marx</label><br>
+        <label><input type="radio" name="q1" value="b"> Adam Smith</label><br>
+
+        <p><strong>2. Ce s-a întâmplat în 2008?</strong></p>
+        <label><input type="radio" name="q2" value="a"> A fost introdus euro</label><br>
+        <label><input type="radio" name="q2" value="b"> Etalonul aur</label><br>
+        <label><input type="radio" name="q2" value="c"> Criză financiară globală</label><br>
+
+        <p><strong>3. Ce a fost Bretton Woods?</strong></p>
+        <label><input type="radio" name="q3" value="a"> Teorie monetară</label><br>
+        <label><input type="radio" name="q3" value="c"> Sistem digital</label><br>
+        <label><input type="radio" name="q3" value="b"> Acord financiar postbelic</label><br>
+
+        <p><strong>4. Ce a propus Keynes în timpul crizei?</strong></p>
+        <label><input type="radio" name="q4" value="a"> Intervenția statului pentru stimularea cererii</label><br>
+        <label><input type="radio" name="q4" value="b"> Eliminarea banilor</label><br>
+        <label><input type="radio" name="q4" value="c"> Impozite zero</label><br>
+
+        <p><strong>5. Ce sistem a promovat Karl Marx?</strong></p>
+        <label><input type="radio" name="q5" value="b"> Proprietate colectivă a mijloacelor de producție</label><br>
+        <label><input type="radio" name="q5" value="a"> Piață liberă</label><br>
+        <label><input type="radio" name="q5" value="c"> Capitalism autoritar</label><br>
+
+        <p><strong>6. Ce s-a întâmplat în 1971 cu dolarul american?</strong></p>
+        <label><input type="radio" name="q6" value="c"> A fost eliminată convertibilitatea în aur</label><br>
+        <label><input type="radio" name="q6" value="a"> A devenit criptomonedă</label><br>
+        <label><input type="radio" name="q6" value="b"> A fost înlocuit cu euro</label><br>
+
+        <button type="button" class="btn" onclick="checkQuiz('quiz3', {
+            q1:'b', q2:'c', q3:'b', q4:'a', q5:'b', q6:'c'
+          })">Trimite</button>
+          
+      </form>
+      <p id="quiz3Result"></p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-wrapper">
+      <div class="footer-column">
+        <h4>Autor proiect</h4>
+        <p>Docea Alexandru</p>
+        <p>Liceul Teoretic "Nikolaus Lenau"</p>
+        <p>Timișoara</p>
+      </div>
+      <div class="footer-column">
+        <h4>Coordonator</h4>
+        <p>prof. Angela Avrămuț</p>
+        <p>prof. Ovidiu Rușeț</p>
+      </div>
+      <div class="footer-column">
+        <h4>Concurs</h4>
+        <p>Istorie și Societate</p>
+        <p>în Dimensiune Virtuală</p>
+      </div>
+    </div>
+    <div class="footer-credit">
+      © 2025 - Proiect realizat de Docea Alexandru
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>

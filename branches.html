@@ -1,0 +1,161 @@
+<!-- branches.html -->
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ramuri Economice</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Economie & Societate</a>
+  
+      <!-- Buton hamburger -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Meniu">
+        ☰
+      </button>
+  
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Acasă</a>
+        <a href="importance.html">Importanța</a>
+        <a href="concepts.html">Concepte</a>
+        <a href="branches.html" class="active">Ramuri</a>
+        <a href="history.html">Istorie</a>
+        <a href="budget.html">Simulare Buget</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="resources.html">Resurse</a>
+      </div>
+    </div>
+  </nav>
+  
+  
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="animate-slide">Ramuri ale Economiei</h1>
+      <p class="animate-fade">Explorează sistemele economice și dinamica lor globală</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- ECONOMIE NAȚIONALĂ VS GLOBALĂ -->
+    <section class="comparison-section">
+      <h2>Economie Națională vs. Globală</h2>
+      <p>
+        Economia națională se referă la activitatea economică din interiorul unei țări, în timp ce economia globală implică tranzacții comerciale, financiare și investiții între state. 
+        Globalizarea a dus la o interdependență crescută a piețelor, iar evenimentele dintr-o regiune pot afecta economiile altor continente.
+      </p>
+
+      
+    </section>
+
+    <!-- SISTEME ECONOMICE -->
+    <section class="system-comparison">
+      <h2>Sisteme Economice</h2>
+      <p>
+        Economiile din lume pot fi împărțite în trei mari categorii:
+        <strong>piață liberă</strong>, <strong>planificată</strong> și <strong>mixtă</strong>, în funcție de rolul statului și gradul de libertate economică.
+      </p>
+
+      <div class="system-buttons">
+        <button class="system-btn active" data-system="free">Piață Liberă</button>
+        <button class="system-btn" data-system="planned">Planificată</button>
+        <button class="system-btn" data-system="mixed">Mixtă</button>
+      </div>
+      
+
+      <!-- Info Box -->
+      <div id="system-description" class="system-description">
+        <!-- Textul se va actualiza din JS -->
+      </div>
+
+      <!-- Tabelele (doar unul este vizibil la un moment dat) -->
+      <div class="system-table-container">
+        <table class="system-table" data-type="free">
+          <!-- Conținut tabel Piață Liberă -->
+          <tr><th>Criteriu</th><th>Piață Liberă</th></tr>
+          <tr><td>Proprietate</td><td>Privată</td></tr>
+          <tr><td>Prețuri</td><td>Cerere și ofertă</td></tr>
+          <tr><td>Inovație</td><td>Stimulate de concurență</td></tr>
+          <tr><td>Exemple</td><td>SUA, Germania</td></tr>
+          <tr><td>Rolul statului</td><td>Minimal</td></tr>
+        </table>
+
+        <table class="system-table hidden" data-type="planned">
+          <!-- Conținut tabel Planificată -->
+          <tr><th>Criteriu</th><th>Planificată</th></tr>
+          <tr><td>Proprietate</td><td>Stat</td></tr>
+          <tr><td>Prețuri</td><td>Stabilite de guvern</td></tr>
+          <tr><td>Inovație</td><td>Limitată</td></tr>
+          <tr><td>Exemple</td><td>Coreea de Nord</td></tr>
+          <tr><td>Rolul statului</td><td>Total</td></tr>
+        </table>
+
+        <table class="system-table hidden" data-type="mixed">
+          <!-- Conținut tabel Mixtă -->
+          <tr><th>Criteriu</th><th>Mixtă</th></tr>
+          <tr><td>Proprietate</td><td>Privată + Stat</td></tr>
+          <tr><td>Prețuri</td><td>Piață + reglementare</td></tr>
+          <tr><td>Inovație</td><td>Sprijinită de stat</td></tr>
+          <tr><td>Exemple</td><td>România, Franța</td></tr>
+          <tr><td>Rolul statului</td><td>Regulator și investitor</td></tr>
+        </table>
+      </div>
+
+
+
+    <!-- GRAFIC - DISTRIBUȚIE CONTINENTALĂ -->
+    <section>
+      <h2>Distribuția Sistemelor Economice</h2>
+
+      <div class="chart-explanation">
+        <p>
+          Acest grafic arată <strong>numărul estimativ de țări</strong> care adoptă preponderent un sistem economic în fiecare continent.
+        </p>
+        <ul class="chart-data-list">
+          <li><strong>Europa:</strong> 15 țări cu piață liberă, 1 planificată, 25 mixte</li>
+          <li><strong>America de Nord:</strong> 20 piață liberă, 0 planificate, 10 mixte</li>
+          <li><strong>Asia:</strong> 5 piață liberă, 3 planificate, 20 mixte</li>
+          <li><strong>Africa:</strong> 2 piață liberă, 1 planificată, 15 mixte</li>
+        </ul>
+      </div>
+
+      <canvas id="economicSystemsChart"></canvas>
+    </section>
+
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-wrapper">
+      <div class="footer-column">
+        <h4>Autor proiect</h4>
+        <p>Docea Alexandru</p>
+        <p>Liceul Teoretic "Nikolaus Lenau"</p>
+        <p>Timișoara</p>
+      </div>
+      <div class="footer-column">
+        <h4>Coordonator</h4>
+        <p>prof. Angela Avrămuț</p>
+        <p>prof. Ovidiu Rușeț</p>
+      </div>
+      <div class="footer-column">
+        <h4>Concurs</h4>
+        <p>Istorie și Societate</p>
+        <p>în Dimensiune Virtuală</p>
+      </div>
+    </div>
+    <div class="footer-credit">
+      © 2025 - Proiect realizat de Docea Alexandru
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
