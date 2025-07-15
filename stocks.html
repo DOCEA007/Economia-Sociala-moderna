@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulare Bursă – Portofoliu & Vânzare</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Economie & Societate</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Meniu">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Acasă</a>
+        <a href="importance.html">Importanța</a>
+        <a href="concepts.html">Concepte</a>
+        <a href="branches.html">Ramuri</a>
+        <a href="history.html">Istorie</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle">Simulări</a>
+          <div class="dropdown-content">
+            <a href="budget.html">Simulare Buget</a>
+            <a href="stocks.html" class="active">Simulare Bursă</a>
+          </div>
+        </div>
+        <a href="quiz.html">Quiz</a>
+        <a href="stiri.html">Știri</a>
+        <a href="resources.html">Resurse</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="animate-slide">Simulare Bursă Virtuală</h1>
+      <p class="animate-fade">
+        Portofel, portofoliu și vânzare individuală de acțiuni cu simulare 100% locală
+      </p>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- WALLET + TOTAL STOCK VALUE -->
+    <div class="card grid" style="grid-template-columns: 1fr 1fr; gap:2rem; align-items:center;">
+      <div>
+        <h2>Portofel: <span id="wallet">0</span> lei</h2>
+      </div>
+      <div>
+        <h2>Valoarea totală a acțiunilor: <span id="stockValue">0</span> lei</h2>
+      </div>
+    </div>
+
+    <!-- STOCK GRID (CUMPĂRĂ) -->
+    <section class="card">
+      <h2>Cumpără Acțiuni</h2>
+      <div class="grid" id="stockGrid" data-animate></div>
+    </section>
+
+    <!-- PORTOFOLIU (VÂNZARE) -->
+    <section class="card">
+      <h2>Portofoliu</h2>
+      <table class="comparison-table" id="portfolioTable">
+        <thead>
+          <tr>
+            <th>Simbol</th>
+            <th>Cant.</th>
+            <th>Preț Mediu</th>
+            <th>Preț Curent</th>
+            <th>Valoare</th>
+            <th>Profit/Pierdere</th>
+            <th>Vinde</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-wrapper">
+      <div class="footer-column">
+        <h4>Autor proiect</h4>
+        <p>Docea Alexandru</p>
+        <p>Liceul Teoretic "Nikolaus Lenau"</p>
+        <p>Timișoara</p>
+      </div>
+      <div class="footer-column">
+        <h4>Coordonator</h4>
+        <p>prof. Angela Avrămuț</p>
+        <p>prof. Ovidiu Rușeț</p>
+      </div>
+      <div class="footer-column">
+        <h4>Concurs</h4>
+        <p>Istorie și Societate</p>
+        <p>în Dimensiune Virtuală</p>
+      </div>
+    </div>
+    <div class="footer-credit">© 2025 – Proiect realizat de Docea Alexandru</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const basePrices = {
+      'TLV.BX': 23.45,
+      'SNP.BX': 0.52,
+      'BRD.BX': 13.20,
+      'FP.BX': 1.10,
+      'EL.BX': 10.30
+    };
+    const stocks = [
+      { symbol: 'TLV.BX', name: 'Banca Transilvania' },
+      { symbol: 'SNP.BX', name: 'OMV Petrom' },
+      { symbol: 'BRD.BX', name: 'BRD Société Générale' },
+      { symbol: 'FP.BX', name: 'Fondul Proprietatea' },
+      { symbol: 'EL.BX', name: 'Electrica' }
+    ];
+
+    function loadState(){
+      return {
+        cash: parseFloat(localStorage.getItem('bvb_cash')) || 10000,
+        portfolio: JSON.parse(localStorage.getItem('bvb_portfolio')||'{}')
+      };
+    }
+    function saveState(state){
+      localStorage.setItem('bvb_cash', state.cash);
+      localStorage.setItem('bvb_portfolio', JSON.stringify(state.portfolio));
+    }
+
+    function genSeries(cur){
+      const a=[]; let p=cur;
+      for(let i=0;i<7;i++){
+        const ch=1+(Math.random()*0.04-0.02);
+        p=parseFloat((p*ch).toFixed(2));
+        a.unshift(p);
+      }
+      return a;
+    }
+    function simPrice(cur){
+      const ch=1+(Math.random()*0.02-0.01);
+      return parseFloat((cur*ch).toFixed(2));
+    }
+
+    // recalcul portofoliu
+    function updatePortfolio(prices){
+      const { portfolio } = loadState();
+      let totalValue = 0;
+      const tbody = document.querySelector('#portfolioTable tbody');
+      tbody.innerHTML = '';
+      for(let sym in portfolio){
+        const rec = portfolio[sym];
+        const cur = prices[sym]||0;
+        const val = rec.qty * cur;
+        totalValue += val;
+        const profit = val - (rec.qty * rec.avgPrice);
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${sym}</td>
+          <td>${rec.qty}</td>
+          <td>${rec.avgPrice.toFixed(2)}</td>
+          <td>${cur.toFixed(2)}</td>
+          <td>${val.toFixed(2)}</td>
+          <td style="color:${profit>=0?'#1A936F':'#e74c3c'}">${profit.toFixed(2)}</td>
+          <td>
+            <input type="number" id="sell-${sym}" min="1" max="${rec.qty}" placeholder="Cant." style="width:60px"/>
+            <button class="btn sell-btn" data-symbol="${sym}">Vinde</button>
+          </td>
+        `;
+        tbody.appendChild(row);
+      }
+      document.getElementById('stockValue').textContent = totalValue.toFixed(2);
+    }
+
+    async function init(){
+      let { cash, portfolio } = loadState();
+      let wallet = cash;
+      document.getElementById('wallet').textContent = wallet.toFixed(2);
+
+      const currentPrices = {};
+      const charts = {};
+      const grid = document.getElementById('stockGrid');
+
+      stocks.forEach(({symbol,name})=>{
+        let price = basePrices[symbol];
+        currentPrices[symbol] = price;
+        const series = genSeries(price);
+
+        const card = document.createElement('div');
+        card.className='card stock-card animate-pop';
+        card.setAttribute('data-animate','');
+        card.innerHTML = `
+          <h3>${name} (${symbol})</h3>
+          <p>Preț curent: <strong id="price-${symbol}">${price.toFixed(2)}</strong> lei</p>
+          <canvas id="chart-${symbol}" height="100"></canvas>
+          <div style="margin-top:1rem;">
+            <input type="number" id="buy-${symbol}" min="1" placeholder="Cant." style="width:80px"/>
+            <button class="btn buy-btn" data-symbol="${symbol}">Cumpără</button>
+          </div>
+          <p class="error-msg" id="err-${symbol}" style="color:#e74c3c;margin-top:0.5rem"></p>
+        `;
+        grid.appendChild(card);
+
+        const ctx=document.getElementById(`chart-${symbol}`).getContext('2d');
+        charts[symbol] = new Chart(ctx,{
+          type:'line',
+          data:{labels:series.map(()=>''),datasets:[{data:series,tension:0.4,fill:false}]},
+          options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{display:false},y:{display:false}}}
+        });
+
+        setInterval(()=>{
+          price = simPrice(price);
+          currentPrices[symbol]=price;
+          document.getElementById(`price-${symbol}`).textContent = price.toFixed(2);
+          const d = charts[symbol].data.datasets[0].data;
+          d.shift(); d.push(price);
+          charts[symbol].update();
+          updatePortfolio(currentPrices);
+        },10000);
+      });
+
+      // cumpără
+      grid.addEventListener('click',e=>{
+        if(!e.target.matches('.buy-btn')) return;
+        const sym=e.target.dataset.symbol;
+        const qtyEl=document.getElementById(`buy-${sym}`);
+        const err=document.getElementById(`err-${sym}`);
+        err.textContent='';
+        const qty=parseInt(qtyEl.value);
+        if(!qty||qty<1){err.textContent='Cantitate invalidă';return;}
+        const price=currentPrices[sym];
+        if(wallet<qty*price){err.textContent='Fonduri insuficiente';return;}
+        wallet-=qty*price;
+        document.getElementById('wallet').textContent=wallet.toFixed(2);
+        const state=loadState();
+        state.cash=wallet;
+        if(!state.portfolio[sym]) state.portfolio[sym]={qty:0,avgPrice:0};
+        const rec=state.portfolio[sym];
+        rec.avgPrice = ((rec.avgPrice*rec.qty)+(price*qty))/(rec.qty+qty);
+        rec.qty+=qty;
+        saveState(state);
+        updatePortfolio(currentPrices);
+        e.target.textContent='✓ Cumpărat';
+        setTimeout(()=>e.target.textContent='Cumpără',1000);
+      });
+
+      // vinde
+      document.querySelector('#portfolioTable tbody').addEventListener('click',e=>{
+        if(!e.target.matches('.sell-btn')) return;
+        const sym=e.target.dataset.symbol;
+        const qtyEl=document.getElementById(`sell-${sym}`);
+        const qty=parseInt(qtyEl.value);
+        const state=loadState();
+        let w=state.cash;
+        const rec=state.portfolio[sym];
+        if(!qty||qty<1||qty>rec.qty) return;
+        const price=currentPrices[sym];
+        w+=qty*price;
+        rec.qty-=qty;
+        if(rec.qty===0) delete state.portfolio[sym];
+        saveState({cash:w,portfolio:state.portfolio});
+        document.getElementById('wallet').textContent=w.toFixed(2);
+        updatePortfolio(currentPrices);
+        e.target.textContent='✓ Vândut';
+        setTimeout(()=>e.target.textContent='Vinde',1000);
+      });
+
+      updatePortfolio(currentPrices);
+
+      document.getElementById('menuToggle')
+        .addEventListener('click', ()=>document.getElementById('navLinks').classList.toggle('show'));
+    }
+
+    document.addEventListener('DOMContentLoaded',init);
+  </script>
+</body>
+</html>

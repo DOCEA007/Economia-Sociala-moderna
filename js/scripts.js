@@ -127,6 +127,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inițializează toate graficele
     initCharts();
 
+    // Mobile dropdown functionality
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const dropdown = this.parentElement;
+            dropdown.classList.toggle('show');
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        dropdownToggles.forEach(toggle => {
+            const dropdown = toggle.parentElement;
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+    });
+
     // Toggle sisteme economice - VERSIUNE CORECTATĂ
     const systemToggle = document.getElementById('systemToggle');
     const marketExample = document.getElementById('marketExample');

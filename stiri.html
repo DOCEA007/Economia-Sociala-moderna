@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Știri de Actualitate</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Economie & Societate</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Meniu">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Acasă</a>
+        <a href="importance.html">Importanța</a>
+        <a href="concepts.html">Concepte</a>
+        <a href="branches.html">Ramuri</a>
+        <a href="history.html">Istorie</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle">Simulări</a>
+          <div class="dropdown-content">
+            <a href="budget.html">Simulare Buget</a>
+            <a href="stocks.html">Simulare Bursă</a>
+          </div>
+        </div>
+        <a href="quiz.html">Quiz</a>
+        <a href="stiri.html" class="active">Știri</a>
+        <a href="resources.html">Resurse</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="animate-slide">Știri de Actualitate</h1>
+      <p class="animate-fade">6 subiecte economice explicate pe înțelesul tuturor</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- 1. Dobândă fixă vs variabilă -->
+    <section class="card animate-pop" data-animate>
+      <h2>1. Diferența dintre Dobânda Fixă și Dobânda Variabilă</h2>
+      <p>
+        Dobânda <strong>fixă</strong> rămâne neschimbată pe toată perioada creditului, facilitând planificarea bugetului personal.
+        Dobânda <strong>variabilă</strong> se ajustează periodic în funcție de indicele de referință (ROBOR/IRCC), putând scădea sau crește
+        rata lunară. <em>Trendurile recente</em> arată că, în contextul inflației ridicate, tot mai mulți debitori preferă stabilitatea
+        dobânzii fixe pentru a evita surprizele neplăcute.
+      </p>
+      <ul>
+        <li><strong>Avantaj fixă:</strong> rate predictibile, protecție la creșteri de dobândă.</li>
+        <li><strong>Avantaj variabilă:</strong> poate deveni mai ieftină când indicii scad.</li>
+      </ul>
+      <div class="chart-container"><canvas id="dobanziChart"></canvas></div>
+    </section>
+
+    <!-- 2. TVA -->
+    <section class="card animate-pop" data-animate>
+      <h2>2. Semnificația TVA și Cine o Încasează</h2>
+      <p>
+        TVA (<em>Taxa pe Valoarea Adăugată</em>) este un impozit indirect care se aplică asupra bunurilor și serviciilor.
+        În România, cota standard este <strong>19&nbsp;%</strong>, iar ANAF este autoritatea care colectează sumele declarate de companii.
+        Vânzătorul adaugă TVA pe factură, îl încasează de la client și îl virează ulterior la bugetul de stat.
+      </p>
+      <p>
+        Graficul de mai jos prezintă evoluția încasărilor din TVA (mld. lei) în ultimii 5 ani și reflectă efectul digitalizării ANAF asupra creșterii conformării voluntare.
+      </p>
+      <div class="chart-container"><canvas id="tvaChart"></canvas></div>
+    </section>
+
+    <!-- 3. PIB cu grafic -->
+    <section class="card animate-pop" data-animate>
+      <h2>3. Produsul Intern Brut (PIB) – Structura Cheltuielilor</h2>
+      <p>
+        PIB-ul măsoară valoarea totală a bunurilor și serviciilor finale produse într-o economie într-un an. Distribuția arată care sectoare generează cererea internă.
+      </p>
+      <div class="chart-container"><canvas id="pibChart"></canvas></div>
+      <ul class="chart-data-list" style="margin-top:1rem">
+        <li><strong>Asistență socială (pensii & ajutoare):</strong> 242,2 mld. lei &nbsp;— include pensii publice (182 mld. lei) și diverse programe de sprijin.</li>
+        <li><strong>Salarii:</strong> 169,5 mld. lei &nbsp;— remunerații pentru cei ~1,25 milioane de angajați din sectorul bugetar.</li>
+        <li><strong>Investiții:</strong> 149,6 mld. lei &nbsp;— infrastructură rutieră, feroviară, digitalizare, proiecte PNRR.</li>
+        <li><strong>Bunuri și servicii:</strong> 94,6 mld. lei &nbsp;— achiziții de medicamente, utilități, manuale școlare, cheltuieli curente ale instituțiilor.</li>
+        <li><strong>Dobânzi:</strong> 90,2 mld. lei &nbsp;— costul finanțării datoriei publice interne și externe.</li>
+        <li><strong>Subvenții:</strong> 41,8 mld. lei &nbsp;— programe de sprijin pentru agricultură, energie, transport public.</li>
+        <li><strong>Alte cheltuieli:</strong> 14 mld. lei &nbsp;— fondul de rezervă, contribuții la UE, cheltuieli neprevăzute.</li>
+      </ul>
+    </section>
+
+    <!-- 4. Agenții economici străini -->
+    <section class="card animate-pop" data-animate>
+      <h2>4. Agenții Economici Străini – Top Investitori</h2>
+      <p>
+        Agenții economici străini reprezintă firme cu capital majoritar extern care operează pe teritoriul României. Topul țărilor investitoare se schimbă anual, însă
+        rămân constante Olanda, Germania și Austria. Investițiile străine directe susțin modernizarea tehnologică și transferul de know-how.
+      </p>
+      <div class="chart-container"><canvas id="fdiChart"></canvas></div>
+    </section>
+
+    <!-- 5. Taxe și impozite pe afaceri -->
+    <section class="card animate-pop" data-animate>
+      <h2>5. Unde se Plătesc Taxele pe Afaceri și Alternative Legale</h2>
+      <p>
+        Un studiu comparativ al cotelor de impozit pe profit în UE arată diferențe semnificative care influențează deciziile de relocare a sediului. Graficul compară
+        cota standard a României cu 6 jurisdicții atractive fiscal.
+      </p>
+      <div class="chart-container"><canvas id="profitTaxChart"></canvas></div>
+    </section>
+
+    <!-- 6. Raport încasări – venituri -->
+    <section class="card animate-pop" data-animate>
+      <h2>6. Raport Încăsări vs. Cheltuieli la Bugetul de Stat</h2>
+      <p>
+        Execuția bugetară lunară evidențiază dinamica veniturilor și cheltuielilor. Un excedent temporar poate fi urmat de deficit în lunile cu plăți de pensii și salarii.
+        Area-chart-ul următor urmărește aceste fluxuri în 2024.
+      </p>
+      <div class="chart-container"><canvas id="bugetChart"></canvas></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-wrapper">
+      <div class="footer-column">
+        <h4>Autor proiect</h4>
+        <p>Docea Alexandru</p>
+        <p>Liceul Teoretic "Nikolaus Lenau"</p>
+        <p>Timișoara</p>
+      </div>
+      <div class="footer-column">
+        <h4>Coordonator</h4>
+        <p>prof. Angela Avrămuț</p>
+        <p>prof. Ovidiu Rușeț</p>
+      </div>
+      <div class="footer-column">
+        <h4>Concurs</h4>
+        <p>Istorie și Societate</p>
+        <p>în Dimensiune Virtuală</p>
+      </div>
+    </div>
+    <div class="footer-credit">© 2025 – Proiect realizat de Docea Alexandru</div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <script src="js/scripts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const root = getComputedStyle(document.documentElement);
+      const primary = root.getPropertyValue('--primary-blue').trim();
+      const accent = root.getPropertyValue('--accent-teal').trim();
+
+      // Update PIB chart
+      const ctx = document.getElementById('pibChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: [
+            'Asistență socială',
+            'Salarii',
+            'Investiții',
+            'Bunuri și servicii',
+            'Dobânzi',
+            'Subvenții',
+            'Alte cheltuieli'
+          ],
+          datasets: [{
+            data: [30.2, 21.1, 18.7, 11.8, 11.2, 5.2, 1.7],
+            backgroundColor: [
+              '#e74c3c', // social
+              primary,
+              accent,
+              '#f1c40f',
+              '#3498db',
+              '#9b59b6',
+              '#95a5a6'
+            ],
+            borderColor: '#fff',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          cutout: '50%',
+          plugins: {
+            legend: { position: 'right' },
+            title: {
+              display: true,
+              text: 'Pe ce se duc banii statului – Cheltuieli buget 2025 (%)'
+            },
+            datalabels: {
+              color: '#fff',
+              font: {weight: 'bold'},
+              formatter: (value) => value + '%'
+            }
+          }
+        },
+        plugins: [ChartDataLabels]
+      });
+
+      const ctxDob = document.getElementById('dobanziChart');
+      if (ctxDob) {
+        new Chart(ctxDob, {
+          type: 'line',
+          data: {
+            labels: ['2019','2020','2021','2022','2023','2024'],
+            datasets: [
+              { label:'Dobândă fixă medie (%)', data:[5.5,5.1,4.8,6.2,7.1,6.8], borderColor: primary, tension:0.4 },
+              { label:'IRCC (%)', data:[2.4,2.1,1.8,4.1,5.9,5.6], borderColor: accent, tension:0.4 },
+              { label:'ROBOR 3M (%)', data:[3.0,2.7,2.0,5.4,7.2,6.9], borderColor:'#e74c3c', tension:0.4 }
+            ]
+          },
+          options:{responsive:true,plugins:{legend:{position:'top'}}}
+        });
+      }
+      const ctxTva = document.getElementById('tvaChart');
+      if (ctxTva){
+        new Chart(ctxTva,{type:'bar',data:{labels:['2019','2020','2021','2022','2023'],datasets:[{label:'Încasări TVA (mld. lei)',data:[73,68,79,102,112],backgroundColor:primary}]},options:{responsive:true,plugins:{legend:{display:false}}}});
+      }
+      const ctxFdi = document.getElementById('fdiChart');
+      if (ctxFdi){
+        new Chart(ctxFdi,{type:'bar',data:{labels:['Olanda','Germania','Austria','Italia','Franța'],datasets:[{label:'Stoc ISD 2023 (mld. €)',data:[12.8,11.4,9.2,6.7,5.9],backgroundColor:[primary,accent,'#6B8EFF','#f39c12','#9b59b6']} ]},options:{indexAxis:'y',responsive:true}});
+      }
+      const ctxTax = document.getElementById('profitTaxChart');
+      if (ctxTax){
+        new Chart(ctxTax,{type:'bar',data:{labels:['RO','BG','HU','IE','EE','CY','LU'],datasets:[{label:'Cota Impozit Profit (%)',data:[16,10,9,12.5,0,12.5,24.9],backgroundColor:accent}]},options:{responsive:true}});
+      }
+      const ctxBuget = document.getElementById('bugetChart');
+      if (ctxBuget){
+        new Chart(ctxBuget,{type:'line',data:{labels:['Ian','Feb','Mar','Apr','Mai','Iun','Iul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'Venituri (mld. lei)',data:[38,42,44,45,47,49,48,50,52,54,55,60],borderColor:primary,fill:true,tension:0.4},{label:'Cheltuieli (mld. lei)',data:[40,41,46,48,50,51,53,54,56,58,60,62],borderColor:'#e74c3c',fill:true,tension:0.4}]},options:{plugins:{legend:{position:'top'}},responsive:true}});
+      }
+    });
+  </script>
+</body>
+</html> 
